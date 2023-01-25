@@ -42,5 +42,4 @@ public class BuscadorServlet extends HttpServlet {
 		request.getRequestDispatcher("resultado.jsp").forward(request, response);
 		
 	}
-
 }
