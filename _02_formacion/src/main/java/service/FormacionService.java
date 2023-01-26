@@ -27,7 +27,7 @@ public class FormacionService {
 													new Alumno("alumno7",33,4)
 													))	
 				);
-	
+		
 	//duracion media de todos los cursos
 	public double duracionMedia() {
 		return cursos.stream()
