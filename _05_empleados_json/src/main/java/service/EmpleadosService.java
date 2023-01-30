@@ -30,7 +30,9 @@ public class EmpleadosService {
 		}
 			//método que reciba un empleado y lo guarde
 		public void guardarEmpleado(Empleado empleado) {
-			ArrayList<Empleado> lista=new ArrayList<>();
+			
+			//creamos una arraylist para poder guardar el objeto empleado
+			ArrayList<Empleado> lista=new ArrayList<>(getJsonStream().toList());
 			 lista.add(empleado);
 			 
 			try (FileWriter fw=new FileWriter(url);){
