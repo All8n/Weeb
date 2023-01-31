@@ -20,7 +20,7 @@ public class EmpleadosService {
 		private Stream<Empleado> getJsonStream(){
 		
 		try(FileReader fr=new FileReader(url);){
-		Empleado[]empleados=gson.fromJson(url, Empleado[].class);
+		Empleado[]empleados=gson.fromJson(fr, Empleado[].class);
 		return Arrays.stream(empleados);
 		}
 		catch(IOException ex) {
