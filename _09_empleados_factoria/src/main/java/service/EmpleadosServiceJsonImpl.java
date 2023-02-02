@@ -14,7 +14,7 @@ import com.google.gson.GsonBuilder;
 
 import model.Empleado;
 
-public class EmpleadosService {
+public class EmpleadosServiceJsonImpl implements EmpleadosService {
 	String url="c:\\Ficheros\\empleados.json";
 	//Gson gson=new Gson();
 	Gson gson=(new GsonBuilder())

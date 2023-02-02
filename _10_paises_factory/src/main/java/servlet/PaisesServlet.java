@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Pais;
 import service.PaisesService;
+import service.PaisesServiceFactory;
+import service.locator.PaisesLocatorFactory;
 
 
 @WebServlet("/PaisesServlet")
@@ -19,7 +21,7 @@ public class PaisesServlet extends HttpServlet {
 
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PaisesService service=new PaisesService();
+		PaisesService service=PaisesServiceFactory.getPaisesService();
 		String continente=request.getParameter("continente");
 		List<Pais> paises=service.paisesPorContinente(continente);
 		request.setAttribute("paises", paises);
