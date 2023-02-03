@@ -1,0 +1,32 @@
+package service;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import model.Contacto;
+import service.locator.ConnectionLocator;
+
+public class ContactosServiceImpl implements ContactosService {
+	
+	
+
+	@Override
+	public void agregarContacto(Contacto contacto) {
+	
+			try(Connection con=ConnectionLocator.getConnection();){
+
+			String sql="insert into contactos(nombre,email,edad) values(?,?,?)";//-----
+			PreparedStatement ps=con.prepareStatement(sql);
+			ps.setString(1, contacto.getNombre());
+			ps.setString(2, contacto.getEmail());
+			ps.setInt(3, contacto.getEdad());
+			ps.execute();//no se le da nada porque ya le dio el valor antes con el "?"^
+			}
+			catch(SQLException ex) {
+				ex.printStackTrace();	
+			}
+			}
+
+	
+}
