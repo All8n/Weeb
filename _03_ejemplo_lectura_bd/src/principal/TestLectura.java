@@ -12,7 +12,7 @@ public class TestLectura {
 		String pwd="root";
 		//Establecer conexión con base de datos
 		try(Connection con=DriverManager.getConnection(cadenaCon,user,pwd);){
-			String sql="select * from contactos where nombre='profe'"
+			String sql="select * from contactos where nombre='profe'";
 		
 		}
 		

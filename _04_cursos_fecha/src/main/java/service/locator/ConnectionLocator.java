@@ -14,7 +14,7 @@ public class ConnectionLocator {
 		}
 	}
 	public static Connection getConnection() throws SQLException{ 
-		String cadenaCon="jdbc:mysql://localhost:3306/academia";
+		String cadenaCon="jdbc:mysql://localhost:3306/agenda";
 		String user="root";
 		String pwd="root";
 		return DriverManager.getConnection(cadenaCon,user,pwd);
