@@ -1,22 +1,27 @@
 package principal;
 
-import service.ProductosService;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 import service.ProductosServiceFactory;
 
 public class Calculos {
 
 	public static void main(String[] args) {
+		
+		ExecutorService executor=Executors.newCachedThreadPool();
 		//de manera concurrente nos mostrara el total de unidades pedidas	
 		//y el nombre del ultimo producto pedido
-		new Thread(()->System.out.println(
+		executor.submit(()->System.out.println(
 				ProductosServiceFactory
 				.getContactosService()
-				.totalUnidades())).start();
-		new Thread(()->System.out.println(
+				.totalUnidades()));
+		executor.submit(()->System.out.println(
 				ProductosServiceFactory
 				.getContactosService()
-				.productoUltimoPedido())).start();
-
+				.productoUltimoPedido()));
+		executor.shutdown();
 	}
 
 }
