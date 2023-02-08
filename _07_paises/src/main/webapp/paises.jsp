@@ -26,7 +26,7 @@
 			<%for(Pais e:paises){ %>
 				<tr>
 					<td><%=e.getName()%></td>
-					<td><%=e.getCapital()%></td>
+					<td><%=e.	getCapital()%></td>
 					<td><%=e.getPopulation()%></td>
 					<td><img src="<%=e.getFlag()%>" width="32" height="16">
 					
