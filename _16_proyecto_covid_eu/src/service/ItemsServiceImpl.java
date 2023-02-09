@@ -1,5 +1,6 @@
 package service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,7 +33,7 @@ public class ItemsServiceImpl implements ItemsService {
 	
 	}
 
-	@Override
+	/*@Override
 	public int totalAcumulados() {
 		return locator.getJsonStream()
 				.filter(it->it.getIndicador().equals("cases"))
@@ -42,11 +43,25 @@ public class ItemsServiceImpl implements ItemsService {
 						.stream()//Stream<Item>
 						.collect(Collectors.summingInt(op->op.get().getAcumulados()));
 						
-						
-						
-						
+			}*/	
+	@Override
+	public int totalAcumulados() {
+		LocalDate fechaMax=fechaMasReciente();
+		return locator.getJsonStream()
+				.filter(it->it.getIndicador().equals("cases")&&Utilidades.convertirTextoFecha(it.getFecha()).equals(fechaMax))
+				.collect(Collectors.summingInt(it->it.getAcumulados()));
+	}
+				
+	
+		private LocalDate fechaMasReciente() {
+			
+			return locator.getJsonStream()
+					.map(it->Utilidades.convertirTextoFecha(it.getFecha()))//Stream<LocalDate>
+					.max((f1,f2)->f1.compareTo(f2))
+					.orElse(LocalDate.now());
+		}
 						
 			
-	}
+	
 
 }
