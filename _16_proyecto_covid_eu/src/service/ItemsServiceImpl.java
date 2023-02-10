@@ -9,6 +9,9 @@ import service.locator.ItemsLocator;
 import utilities.Utilidades;
 
 public class ItemsServiceImpl implements ItemsService {
+	//Desde una clase main, se mostrarán los datos de incidencia de todos paises registrados.
+	//Así mismo, se lanzará una tarea encargada de calcular los casos totales y, una vez
+	//completada, se mostrará ese resultado en consola
 	
 	ItemsLocator locator=new ItemsLocator();
 
