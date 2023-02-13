@@ -28,6 +28,7 @@ public class VentanaLogin extends JFrame {
 	}
 	
 	 void inicializarComponentes() {
+		 
 		 //anular el gestor de organizacion(layout)
 		 this.setLayout(null);
 		 JLabel lb1=new JLabel("Usuario: ");
