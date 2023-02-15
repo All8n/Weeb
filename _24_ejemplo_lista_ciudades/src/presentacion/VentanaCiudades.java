@@ -64,12 +64,13 @@ public class VentanaCiudades extends JFrame {
 		listCiudades.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) {
 				
-				if(JOptionPane.showConfirmDialog(VentanaCiudades.this,"¿Desea eliminar la ciudad?")==JOptionPane.
+				if(JOptionPane.showConfirmDialog(VentanaCiudades.this,"¿Desea eliminar la ciudad?")==JOptionPane.YES_OPTION) {
 						Ciudad c=listCiudades.getSelectedValue();
 				        CiudadesService service=new CiudadesService();
-				        service.eliminarCiudad(c.getNombre()));
+				        service.eliminarCiudad(c.getNombre());
 						//reasignar 
 						regenerarLista(listCiudades);
+				}
 			}
 		});
 		scrollPane.setViewportView(listCiudades);
