@@ -87,10 +87,10 @@ public class VentanaTemas extends JFrame {
 				comboTemas.addItem(new Temas(0,"-Seleccione uno-"));
 				
 				ScheduledExecutorService executor=Executors.newSingleThreadScheduledExecutor();
-				executor.schedule(()->{
+				executor.scheduleAtFixedRate(()->{
 					LocalTime time=LocalTime.now();
 					lbHora.setText(time.toString());
-				}, 1, TimeUnit.SECONDS);
+				},0, 1, TimeUnit.SECONDS);
 				
 				
 			}
